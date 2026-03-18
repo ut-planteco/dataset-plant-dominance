@@ -10,10 +10,10 @@
 # Aboveground trait file will be used to determine the height of the plants, only select shorter than 2 meters.
 #
 # References:
-# Carmona CP, Bueno CG, Toussaint A, Trأ¤ger S, Dأ­az S, Moora M, Munson AD, Pأ¤rtel M, Zobel M, Tamme R. 2021. Fine-root traits in the global spectrum of plant form and function. Nature 597(7878): 683-687.
-# Tamme R, Pأ¤rtel M, Kأµljalg U, Laanisto L, Liira J, Mander أœ, Moora M, Niinemets أœ, أ–pik M, Ostonen I, et al. 2021. Global macroecology of nitrogen-fixing plants. Global Ecology and Biogeography 30(2): 514-526.
-# Guerrero-Ramأ­rez NR, Mommer L, Freschet GT, Iversen CM, McCormack ML, Kattge J et al. 2021. Global root traits (GRooT) database. Global Ecology and Biogeography 30: 25-37
-# Sabatini FM, Lenoir J, Hattab T, Arnst EA, Chytrأ½ M, Dengler J, De Ruffray P, Hennekens SM, Jandt U, Jansen F, et al. 2021. sPlotOpen - An environmentally balanced, open-access, global dataset of vegetation plots. Global Ecology and Biogeography 30(9): 1740-1764.
+# Carmona CP, Bueno CG, Toussaint A, Träger S, Diaz S, Moora M, Munson AD, Pärtel M, Zobel M, Tamme R. 2021. Fine-root traits in the global spectrum of plant form and function. Nature 597(7878): 683-687.
+# Tamme R, Pärtel M, Kõljalg U, Laanisto L, Liira J, Mander Ü, Moora M, Niinemets Ü, Öpik M, Ostonen I, et al. 2021. Global macroecology of nitrogen-fixing plants. Global Ecology and Biogeography 30(2): 514-526.
+# Guerrero-Ramirez NR, Mommer L, Freschet GT, Iversen CM, McCormack ML, Kattge J et al. 2021. Global root traits (GRooT) database. Global Ecology and Biogeography 30: 25-37
+# Sabatini FM, Lenoir J, Hattab T, Arnst EA, Chytrý M, Dengler J, De Ruffray P, Hennekens SM, Jandt U, Jansen F, et al. 2021. sPlotOpen - An environmentally balanced, open-access, global dataset of vegetation plots. Global Ecology and Biogeography 30(9): 1740-1764.
 
 from collections import defaultdict
 import gzip
