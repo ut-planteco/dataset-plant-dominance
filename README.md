@@ -22,6 +22,8 @@ Our analysis suggests that the local success of herbaceous plants is context-spe
 
 # Running the scripts
 
+Unpack tamme2021.GBIF.spe_tot.csv.zip.001 file, it is packed into multiple volumes, most zip software should handle the unpacking.
+
 First you need to execute python script step1_data_filtering.py
 
 `python3 step1_data_filtering.py`
@@ -35,6 +37,11 @@ To convert lm and glm output into table format, use `step3_convert_lmoutput_to_t
 
 > Tamme R, Pärtel M, Kõljalg U, Laanisto L, Liira J, Mander Ü, Moora M, Niinemets Ü, Öpik M, Ostonen I, et al. 2021. Global macroecology of nitrogen-fixing plants. Global Ecology and Biogeography 30(2): 514-526.
 
-> Guerrero-Ramirez NR, Mommer L, Freschet GT, Iversen CM, McCormack ML, Kattge J et al. 2021. Global root traits (GRooT) database. Global Ecology and Biogeography 30: 25-37
+> Guerrero-Ramirez NR, Mommer L, Freschet GT, Iversen CM, McCormack ML, Kattge J et al. 2021. Global root traits (GRooT) database. Global Ecology and Biogeography 30: 25-37.
 
 > Sabatini FM, Lenoir J, Hattab T, Arnst EA, Chytrý M, Dengler J, De Ruffray P, Hennekens SM, Jandt U, Jansen F, et al. 2021. sPlotOpen - An environmentally balanced, open-access, global dataset of vegetation plots. Global Ecology and Biogeography 30(9): 1740-1764.
+
+> Venter O, Sanderson EW, Magrach A, Allan JR, Beher J, Jones KR, Watson JE, et al. 2016. Global terrestrial Human Footprint maps for 1993 and 2009. Scientific data 3: 1-10.
+
+> Center for International Earth Science Information Network - CIESIN - Columbia University, and Centro Internacional de Agricultura Tropical - CIAT. 2005. Gridded Population of the World, Version 3 (GPWv3): Population Density Grid. Palisades, NY: NASA Socioeconomic Data and Applications Center (SEDAC).
+ 
