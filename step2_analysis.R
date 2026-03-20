@@ -13,6 +13,8 @@
 # Tamme R, Pärtel M, Kõljalg U, Laanisto L, Liira J, Mander Ü, Moora M, Niinemets Ü, Öpik M, Ostonen I, et al. 2021. Global macroecology of nitrogen-fixing plants. Global Ecology and Biogeography 30(2): 514-526.
 # Guerrero-Ramirez NR, Mommer L, Freschet GT, Iversen CM, McCormack ML, Kattge J et al. 2021. Global root traits (GRooT) database. Global Ecology and Biogeography 30: 25-37
 # Sabatini FM, Lenoir J, Hattab T, Arnst EA, Chytrý M, Dengler J, De Ruffray P, Hennekens SM, Jandt U, Jansen F, et al. 2021. sPlotOpen - An environmentally balanced, open-access, global dataset of vegetation plots. Global Ecology and Biogeography 30(9): 1740-1764.
+# Venter O, Sanderson EW, Magrach A, Allan JR, Beher J, Jones KR, Watson JE, et al. 2016. Global terrestrial Human Footprint maps for 1993 and 2009. Scientific data 3: 1-10.
+# Center for International Earth Science Information Network - CIESIN - Columbia University, and Centro Internacional de Agricultura Tropical - CIAT. 2005. Gridded Population of the World, Version 3 (GPWv3): Population Density Grid. Palisades, NY: NASA Socioeconomic Data and Applications Center (SEDAC).
 #
 # Tested on Windows 10 64BIT (22H2), AMD Ryzen 7 5700X, R 4.1.2
 
@@ -44,8 +46,8 @@ library(dggridR)
 ############################### DATA PREPARATION ###############################
 
 # set up color palettes
-cols = brewer.pal(n = 8, name = "Set1")
-cols_alpha = brewer.pal(n = 8, name = "Pastel1")
+cols <- brewer.pal(n = 8, name = "Set1")
+cols_alpha <- brewer.pal(n = 8, name = "Pastel1")
 
 # color palette with alpha
 colorRampAlpha <- function(..., n, alpha) {
@@ -147,8 +149,8 @@ rownames(pr.data2) <- gsub("_", " ", rownames(pr.data2))
 pr.data3 <- na.omit(merge(pr.data1, pr.data2, by = 0))
 rownames(pr.data3) <- pr.data3$Row.names
 pr.data3 <- pr.data3[,-1]
-pr.data.filtered3 = log(pr.data3 + 1)
-pr3.splot = prcomp(pr.data.filtered3, scale. = TRUE)
+pr.data.filtered3 <- log(pr.data3 + 1)
+pr3.splot <- prcomp(pr.data.filtered3, scale. = TRUE)
 biplot(pr3.splot)
 
 ################################### TABLE S2 ###################################
@@ -295,7 +297,7 @@ for(l in 1:3){
     message("p-values:", paste(round(p.values, 3), collapse = ",")) # show original p-values and calculate corrected p-values
     message("Corrected p-values (fdr):", paste(round(p.adjust(p.values, "fdr"), 3), collapse = ","))
     
-    pts = predict(pr, combined.complete)
+    pts <- predict(pr, combined.complete)
     pr.summary <- summary(pr)
     
     # draw PCA plot, do not fill yet
@@ -306,11 +308,11 @@ for(l in 1:3){
     mtext(titles[k], 3, 0.5, adj = 0, cex = 1)
     
     # calculate ordisurf object
-    obj = ordisurf(pts ~ combined$frequency, method = "REML", family="gaussian", select = TRUE, add = TRUE, col = "black", lwd.cl = 1, bubble = TRUE)
+    obj <- ordisurf(pts ~ combined$frequency, method = "REML", family="gaussian", select = TRUE, add = TRUE, col = "black", lwd.cl = 1, bubble = TRUE)
     
     data.range <- summary(as.vector(obj$grid$z))
     colfunc <- colorRampPalette(c(cols[2], "white", cols[1]))
-    data.range.colors = colfunc(20)
+    data.range.colors <- colfunc(20)
     # color the area based on ordisurf object
     for(i in c(1:(length(obj$grid$x) - 1))){
         for(j in c(1:(length(obj$grid$y) - 1))){
@@ -429,7 +431,7 @@ dev.off()
 
 ################################## FIGURE S4 ###################################
 pdf("FigS4.pdf", width=12, height=12, pointsize=16)
-titles = c("a)", "b)", "c)", "d)")
+titles <- c("a)", "b)", "c)", "d)")
 par(mfrow = c(1, 4))
 for(k in 1:4){
   if(k == 2){ # sPlotOpen + belowground
@@ -490,10 +492,10 @@ for(k in 1:length(files_frequency)){
   data3.full <- merge(data1.full, data2.full, by = 0)
   data3.full <- merge(data3.full, freq, by.x = 1, by.y = 0)
   
-  aPC1 = data3.full$PC1.y
-  aPC2 = data3.full$PC2.y
-  bPC1 = data3.full$PC1.x
-  bPC2 = data3.full$PC2.x
+  aPC1 <- data3.full$PC1.y
+  aPC2 <- data3.full$PC2.y
+  bPC1 <- data3.full$PC1.x
+  bPC2 <- data3.full$PC2.x
   
   rvalues <- c()
   l <- lm(data3.full$frequency ~ aPC1 + aPC2 + bPC1 + bPC2)
@@ -617,23 +619,23 @@ pdf("FigS1.pdf", width=16, height=12)
 par(mfcol = c(2, 2))
 
 map("world", border = "grey", fill = TRUE, col = "grey", bg = "white", ylim = c(-60, 90), mar = c(0,0,0,0))
-dat = read.table("population.splot.txt.gz", sep="\t", row.names = 1, header = TRUE)
+dat <- read.table("population.splot.txt.gz", sep="\t", row.names = 1, header = TRUE)
 points(dat$longitude, dat$latitude, pch = 16, col = "blue", cex = 0.7)
 text(x = par("usr")[1], y = par("usr")[4] - 1.5, labels = "a)", pos = 4, xpd = NA, cex = 2)
 
 map("world", border = "grey", fill = TRUE, col = "grey", bg = "white", ylim = c(-60, 90), mar = c(0,0,0,0))
-dat = read.table("population.gbif.txt.gz", sep="\t", row.names = 1, header = TRUE)
+dat <- read.table("population.gbif.txt.gz", sep="\t", row.names = 1, header = TRUE)
 points(dat$longitude, dat$latitude, pch = 16, col = "blue", cex = 0.7)
 text(x = par("usr")[1], y = par("usr")[4] - 1.5, labels = "b)", pos = 4, xpd = NA, cex = 2)
 
 par(mar = c(7.1, 7.1, 7.1, 6.1))
 # Download HumanImpact data: https://wcshumanfootprint.org/v2/
 data.humanimpact <- raster("HumanImpact/HFP2009.tif") # this needs to be downloaded
-hi.values = na.omit(getValues(data.humanimpact))
+hi.values <- na.omit(getValues(data.humanimpact))
 plot(density(hi.values[hi.values >= 0.0], adjust = 3), xlab = "Human Footprint Index", main = "", xaxs = "i", yaxs = "i", xlim=c(0, 50), lwd = 2)
-data.coords = read.table("population.gbif.txt.gz", sep="\t", row.names = 1, header = TRUE)
+data.coords <- read.table("population.gbif.txt.gz", sep="\t", row.names = 1, header = TRUE)
 lines(density(na.omit(data.coords$hi[data.coords$hi > 0.0])), col = "red", lwd = 2)
-data.coords = read.table("population.splot.txt.gz", sep="\t", row.names = 1, header = TRUE)
+data.coords <- read.table("population.splot.txt.gz", sep="\t", row.names = 1, header = TRUE)
 lines(density(na.omit(data.coords$hi[data.coords$hi > 0.0])), col = "blue", lwd = 2)
 legend("topright", legend = c("globally", "GBIF", "sPlotOpen"), col = c("black", "red", "blue"), pch = 15)
 text(x = par("usr")[1], y = par("usr")[4] - 1.5, labels = "c)", pos = 4, xpd = NA, cex = 2)
@@ -641,9 +643,9 @@ text(x = par("usr")[1], y = par("usr")[4] - 1.5, labels = "c)", pos = 4, xpd = N
 dat <- read.table("population_density_1degree.csv.gz", sep = ",")
 dat <- dat[dat < 99999]
 plot(density(unlist(log(dat)), adjust = 3), xlab = "Human population per square metre (log)", main = "", xaxs = "i", yaxs = "i", xlim=c(0, 10), lwd = 2)
-dat = read.table("population.gbif.txt.gz", sep="\t", row.names = 1, header = TRUE)
+dat <- read.table("population.gbif.txt.gz", sep="\t", row.names = 1, header = TRUE)
 lines(density(log(dat$population)), col = "red", lwd = 2)
-dat = read.table("population.splot.txt.gz", sep="\t", row.names = 1, header = TRUE)
+dat <- read.table("population.splot.txt.gz", sep="\t", row.names = 1, header = TRUE)
 lines(density(log(dat$population)), col = "blue", lwd = 2)
 legend("topright", legend = c("globally", "GBIF", "sPlotOpen"), col = c("black", "red", "blue"), pch = 15)
 text(x = par("usr")[1], y = par("usr")[4] - 1.5, labels = "d)", pos = 4, xpd = NA, cex = 2)
